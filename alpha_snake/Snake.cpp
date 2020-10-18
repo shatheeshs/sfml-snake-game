@@ -22,7 +22,7 @@ void Snake::reset()
 	snakeBody.push_back(SnakeSegment(5, 6));
 	snakeBody.push_back(SnakeSegment(5, 5));
 	setDirection(Direction::None); // Start off still.
-	snakeSpeed = 15;
+	snakeSpeed = 2;
 	lifeLines = 3;
 	totalScore = 0;
 	lostState = false;
@@ -64,7 +64,7 @@ void Snake::cut(int segments)
 	if (!lifeLines) { setLose(); return; }
 }
 
-void Snake::renderSnake(sf::RenderWindow & window)
+void Snake::renderSnake(sf::RenderWindow& window)
 {
 	if (snakeBody.empty()) { return; }
 	auto head = snakeBody.begin();

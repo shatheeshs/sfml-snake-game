@@ -1,7 +1,7 @@
 #include <iostream>
 #include "GameManager.h"
 
-GameManager::GameManager() :snake(env.getBlockSize()), env(sf::Vector2u(800, 600))
+GameManager::GameManager() :env(sf::Vector2u(800, 600)) , snake(env.getBlockSize()), timeElapsed(100000)
 {
 	this->Init();
 }
@@ -27,7 +27,6 @@ void GameManager::update()
 	}
 
 	//Do update
-
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
 		&& snake.getDirection() != Direction::Down)
 	{
@@ -50,7 +49,7 @@ void GameManager::update()
 	}
 
 
-	float timestep = 1.0f / snake.getSpeed();
+	float timestep = 10.0f / snake.getSpeed();
 	if (timeElapsed >= timestep) {
 		snake.tick();
 		env.updateEnviroment(snake);
@@ -67,8 +66,6 @@ void GameManager::render()
 	this->window->clear();
 
 	//Do Render
-	//this->window->()
-	// Render here.
 	env.renderEnvironment(*window);
 	snake.renderSnake(*window);
 

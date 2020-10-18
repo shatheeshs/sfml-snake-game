@@ -51,7 +51,7 @@ void Environment::respawnApple()
 		item.y * blockSize);
 }
 
-void Environment::updateEnviroment(Snake & player)
+void Environment::updateEnviroment(Snake& player)
 {
 	if (player.getPosition() == item) {
 		player.extend();
@@ -69,7 +69,7 @@ void Environment::updateEnviroment(Snake & player)
 	}
 }
 
-void Environment::renderEnvironment(sf::RenderWindow & window)
+void Environment::renderEnvironment(sf::RenderWindow& window)
 {
 	for (int i = 0; i < 4; ++i) {
 		window.draw(bounds[i]);
