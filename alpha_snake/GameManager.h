@@ -14,6 +14,7 @@ public:
 	GameManager();
 	~GameManager();
 
+	sf::Image icon;
 	sf::RenderWindow* window;
 	sf::Event ev;
 
