@@ -3,7 +3,7 @@
 #include "GameManager.h"
 
 
-int main()
+void main()
 {
 
 	//GameManager
@@ -15,6 +15,4 @@ int main()
 
 		gameManager.render();
 	}
-
-	return 0;
 }

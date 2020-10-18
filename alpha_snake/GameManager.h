@@ -5,6 +5,8 @@
 #include <SFML/System.hpp>
 #include <SFML/Audio.hpp>
 #include <vector>
+#include "Environment.h"
+#include "Snake.h"
 
 class GameManager
 {
@@ -23,5 +25,9 @@ public:
 private:
 	void Init();
 	void SetupEnv();
+
+	int timeElapsed;
+	Environment env;
+	Snake snake;
 
 };

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "GameManager.h"
 
-GameManager::GameManager()
+GameManager::GameManager() :snake(env.getBlockSize()), env(sf::Vector2u(800, 600))
 {
 	this->Init();
 }
@@ -25,8 +25,41 @@ void GameManager::update()
 			break;
 		}
 	}
-	
+
 	//Do update
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
+		&& snake.getDirection() != Direction::Down)
+	{
+		snake.setDirection(Direction::Up);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
+		&& snake.getDirection() != Direction::Up)
+	{
+		snake.setDirection(Direction::Down);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
+		&& snake.getDirection() != Direction::Right)
+	{
+		snake.setDirection(Direction::Left);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
+		&& snake.getDirection() != Direction::Left)
+	{
+		snake.setDirection(Direction::Right);
+	}
+
+
+	float timestep = 1.0f / snake.getSpeed();
+	if (timeElapsed >= timestep) {
+		snake.tick();
+		env.updateEnviroment(snake);
+		timeElapsed -= timestep;
+		if (snake.hasLost()) {
+			snake.reset();
+		}
+	}
+
 }
 
 void GameManager::render()
@@ -34,6 +67,11 @@ void GameManager::render()
 	this->window->clear();
 
 	//Do Render
+	//this->window->()
+	// Render here.
+	env.renderEnvironment(*window);
+	snake.renderSnake(*window);
+
 	this->window->display();
 }
 
