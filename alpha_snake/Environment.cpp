@@ -12,7 +12,7 @@ Environment::Environment(sf::Vector2u windSize)
 	appleShape.setFillColor(sf::Color::Red);
 	appleShape.setRadius(blockSize / 2);
 	for (int i = 0; i < 4; ++i) {
-		bounds[i].setFillColor(sf::Color(150, 0, 0));
+		bounds[i].setFillColor(sf::Color(200, 0, 0));
 		if (!((i + 1) % 2)) {
 			bounds[i].setSize(sf::Vector2f(windowSize.x,
 				blockSize));

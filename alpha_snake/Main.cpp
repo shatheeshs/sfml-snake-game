@@ -6,7 +6,8 @@
 void main()
 {
 
-	//GameManager
+	FreeConsole();
+
 	GameManager gameManager;
 
 	while (gameManager.isWindowRunning())

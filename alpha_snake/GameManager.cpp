@@ -85,8 +85,8 @@ void GameManager::updateWindowMousePos()
 
 void GameManager::Init()
 {
-	this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "SNAKE XENXIA", sf::Style::Titlebar | sf::Style::Close);
-	this->window->setFramerateLimit(10);
+	this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "SNAKE XENXIA v0.1", sf::Style::Titlebar | sf::Style::Close);
+	this->window->setFramerateLimit(20);
 
 	try
 	{
